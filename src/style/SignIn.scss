@@ -1,0 +1,68 @@
+.signin-container {
+	@include object(380px, auto, #fff);
+	@include flex(center, center, column);
+	border: 1px solid $border-color;
+	border-radius: $border-radius-size;
+	padding: 30px 36px 0 36px;
+}
+
+.signin-title {
+	@include font(45px, '', '', 'Lobster');
+	margin-bottom: 40px;
+	cursor: default;
+}
+
+.signin-input {
+	input {
+		@include flex('', '', column);
+		@include object(100%, 42px, $bg-color);
+		margin-top: 8px;
+		border: 1px solid $border-color;
+		border-radius: $border-radius-size;
+		padding: 8px;
+
+		&:focus {
+			outline: none;
+		}
+	}
+}
+
+.signin-button {
+	@include object(306px, 38px, #c7e0fd);
+	margin-top: 12px;
+	border: 0;
+	border-radius: $border-radius-size;
+	color: white;
+	padding: 8px;
+}
+
+.active {
+	background-color: $point-color;
+	cursor: pointer;
+}
+
+.signin-error {
+	@include font(13px, tomato, '', '');
+	padding: 36px 0 24px 0;
+	text-align: center;
+}
+
+.signup-error {
+	@include font(13px, tomato, '', '');
+	padding-top: 36px;
+	text-align: center;
+}
+
+.signin-footer {
+	@include object(306px, auto, '');
+	@include flex(center, center, '');
+	border-top: 1px solid $border-color;
+	margin-top: 40px;
+	padding: 30px 0;
+	font-size: 14px;
+}
+
+.signin-footer-join {
+	cursor: pointer;
+	color: $point-color;
+}

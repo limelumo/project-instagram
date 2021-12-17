@@ -1,0 +1,18 @@
+.timeline-container {
+	@include object(100%, auto, $bg-color-gray);
+	@include flex(center, '', '');
+	padding-top: 30px;
+	position: absolute;
+	top: 60px;
+}
+
+#timeline {
+	@include object(935px, inherit, '');
+}
+
+.timeline-left {
+	width: 100%;
+	max-width: 614px;
+	margin-right: 28px;
+	float: left;
+}

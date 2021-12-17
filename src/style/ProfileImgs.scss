@@ -1,0 +1,47 @@
+.profile-imgs-items {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 28px;
+}
+
+.profile-imgs-item {
+	@include object(100%, 293px, '');
+	border: 1px solid $border-color;
+	position: relative;
+}
+
+.profile-imgs-item-hover {
+	@include object(100%, 293px, rgba(0, 0, 0, 0));
+	@include flex(center, center, '');
+	position: absolute;
+	top: 0;
+	padding: 0 16px;
+	cursor: pointer;
+
+	li {
+		@include font(18px, white, bold, '');
+		width: 30%;
+		opacity: 0;
+		text-align: center;
+
+		i {
+			margin-right: 6px;
+		}
+	}
+}
+
+.profile-imgs-item:hover {
+	.profile-imgs-item-hover {
+		background-color: rgba(0, 0, 0, 0.5);
+
+		li {
+			opacity: 100;
+		}
+	}
+}
+
+.profile-imgs-icon-comment {
+	i {
+		transform: rotateY(180deg);
+	}
+}

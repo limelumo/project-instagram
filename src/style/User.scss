@@ -1,0 +1,17 @@
+#user {
+	@include flex('', center, '');
+	@include object(100%, '', '');
+	padding: 16px 0;
+
+	img {
+		@include object(56px, 56px, '');
+		border-radius: 50%;
+		border: 1px solid $border-color;
+		margin-right: 16px;
+	}
+
+	p {
+		font-size: 14px;
+		font-weight: bold;
+	}
+}

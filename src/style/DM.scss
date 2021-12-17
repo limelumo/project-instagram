@@ -1,0 +1,13 @@
+.dm-container {
+	@include object(100%, 100%, $bg-color-gray);
+	@include flex(center, '', '');
+	padding-top: 30px;
+	position: absolute;
+	top: 60px;
+}
+
+#dm {
+	@include object(100%, inherit, white);
+	max-width: 935px;
+	border: 1px solid $border-color;
+}

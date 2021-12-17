@@ -1,0 +1,45 @@
+#nav {
+	@include flex(center, center, '');
+	@include object(100%, $nav-height, white);
+	position: fixed;
+	top: 0;
+	left: 0;
+	border-bottom: 1px solid $border-color;
+	z-index: 1;
+}
+
+.nav-container {
+	@include flex(space-between, center, '');
+	@include object(100%, inherit, '');
+	max-width: $nav-width;
+	padding: 0 20px;
+	text-align: center;
+}
+
+.nav-title {
+	@include font(25px, black, '', 'Lobster');
+	cursor: pointer;
+}
+
+.nav-input {
+	@include object(268px, 36px, #fafafa);
+	min-width: 125px;
+	border: 1px solid $border-color;
+	border-radius: $border-radius-size;
+	font-size: 14px;
+	padding: 3px 12px;
+}
+
+.nav-icons {
+	@include flex(space-between, center, '');
+
+	li {
+		@include object(24px, 24px, '');
+		margin-left: 24px;
+		cursor: pointer;
+
+		i {
+			font-size: 22px;
+		}
+	}
+}

@@ -1,0 +1,39 @@
+#user-suggestion {
+	margin-top: 16px;
+}
+
+.user-suggestion-header {
+	@include font(14px, gray, '', '');
+	padding: 4px 0;
+	margin-bottom: 8px;
+}
+
+.user-suggestion-list {
+	@include flex(space-between, center, '');
+}
+
+.user-suggestion-list-id {
+	@include flex('', center, '');
+
+	li {
+		overflow: hidden;
+
+		&:first-child {
+			@include object(42px, 42px, '');
+			border: 1px solid $border-color;
+			border-radius: 50%;
+			margin-right: 16px;
+		}
+
+		&:last-child {
+			font-size: 14px;
+			font-weight: bold;
+		}
+	}
+}
+
+.user-suggestion-list-follow {
+	@include font(12px, $point-color, bold, '');
+	border: 0;
+	background-color: transparent;
+}

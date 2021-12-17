@@ -1,0 +1,59 @@
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import SignIn from '@/pages/SignIn.vue';
+import SignUp from '@/pages/SignUp.vue';
+import Main from '@/pages/Main.vue';
+import MainProfile from '@/pages/MainProfile.vue';
+import DM from '@/pages/DM.vue';
+import firebase from 'firebase/compat/app';
+
+Vue.use(VueRouter);
+
+const router = new VueRouter({
+	mode: 'history',
+	routes: [
+		{
+			path: '/',
+			redirect: 'sign-in',
+		},
+		{
+			path: '/sign-in',
+			name: 'sign-in',
+			component: SignIn,
+		},
+		{
+			path: '/sign-up',
+			name: 'sign-up',
+			component: SignUp,
+		},
+		{
+			path: '/main',
+			name: 'main',
+			component: Main,
+			meta: { requiresAuth: true },
+		},
+		{
+			path: '/profile',
+			name: 'main-profile',
+			component: MainProfile,
+		},
+		{
+			path: '/dm',
+			name: 'dm',
+			component: DM,
+		},
+	],
+});
+
+router.beforeEach((to, from, next) => {
+	const requiresAuth = to.matched.some((record) => record.meta.requiresAuth);
+	const isAuthenticated = firebase.auth().currentUser;
+
+	if (requiresAuth && !isAuthenticated) {
+		next('/signIn');
+	} else {
+		next();
+	}
+});
+
+export default router;

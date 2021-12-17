@@ -1,0 +1,47 @@
+.vue-popover {
+	padding: 0;
+}
+
+.NavPopover {
+	&-enter-active,
+	&-leave-active {
+		transition: opacity 300ms;
+	}
+	&-enter,
+	&-leave-to {
+		opacity: 0;
+	}
+}
+
+[data-popover='NavPopover'] {
+	font-size: 14px;
+	line-height: 1.5;
+
+	a {
+		color: black;
+	}
+
+	.profile {
+		@include flex('', center, '');
+		padding: 8px 0 8px 16px;
+
+		i {
+			margin-right: 12px;
+			font-size: 16px;
+		}
+		&:hover {
+			background-color: $hover-color-gray;
+			border-radius: 5px 5px 0 0;
+		}
+	}
+
+	.logout {
+		border-top: 1px solid $border-color;
+		text-align: left;
+		padding: 8px 0 8px 16px;
+		&:hover {
+			background-color: $hover-color-gray;
+			border-radius: 0 0 5px 5px;
+		}
+	}
+}

@@ -1,0 +1,19 @@
+@mixin object($w, $h, $bg) {
+	width: $w;
+	height: $h;
+	background-color: $bg;
+}
+
+@mixin flex($j, $a, $d) {
+	display: flex;
+	justify-content: $j;
+	align-items: $a;
+	flex-direction: $d;
+}
+
+@mixin font($s, $c, $w, $f) {
+	font-size: $s;
+	color: $c;
+	font-weight: $w;
+	font-family: $f;
+}
