@@ -40,5 +40,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/style/NavPopover.scss';
+@import '@/style/Nav/NavPopover.scss';
 </style>

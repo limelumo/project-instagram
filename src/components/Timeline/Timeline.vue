@@ -26,5 +26,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/style/Timeline.scss';
+@import '@/style/Timeline/Timeline.scss';
 </style>

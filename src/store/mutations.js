@@ -4,8 +4,14 @@ export default {
 	},
 
 	controlModal(state, payload) {
-		state.uploadStep = 1;
 		state.isModalOpen = payload;
+		if (state.isModalOpen) {
+			state.uploadStep = 1;
+		}
+	},
+
+	controlDelModal(state, payload) {
+		state.isDelModalOpen = payload;
 	},
 
 	setUploadStep(state, payload) {
@@ -26,11 +32,21 @@ export default {
 
 	setPostText(state, payload) {
 		state.postText = payload;
-		console.log(state.postText);
 	},
 
 	setPostLocation(state, payload) {
 		state.postLocation = payload;
-		console.log(state.postLocation);
+	},
+
+	setProfilePosts(state, payload) {
+		state.profilePosts = payload;
+	},
+
+	isClikedPost(state, payload) {
+		state.clikedPost = payload;
+	},
+
+	setPostNum(state, payload) {
+		state.postNum = payload;
 	},
 };

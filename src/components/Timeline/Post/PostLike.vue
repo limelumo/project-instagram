@@ -17,5 +17,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/style/Post.scss';
+@import '@/style/Timeline/Post.scss';
 </style>

@@ -16,5 +16,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/style/Storys.scss';
+@import '@/style/Story/Storys.scss';
 </style>

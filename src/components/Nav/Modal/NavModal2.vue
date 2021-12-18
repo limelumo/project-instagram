@@ -14,7 +14,7 @@
 					<img :src="imgUrl" :class="filtered" alt="uploadImg" />
 				</div>
 
-				<NavPostFilter />
+				<NavModal2Filter />
 			</section>
 		</div>
 	</div>
@@ -22,12 +22,12 @@
 
 <script>
 import { mapState, mapMutations } from 'vuex';
-import NavPostFilter from './NavPostFilter.vue';
+import NavModal2Filter from './NavModal2Filter.vue';
 
 export default {
 	name: 'NavPostStep2',
 	components: {
-		NavPostFilter,
+		NavModal2Filter,
 	},
 	computed: {
 		...mapState(['imgUrl', 'filtered']),
@@ -39,5 +39,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/style/NavPost.scss';
+@import '@/style/Nav/NavModal.scss';
 </style>

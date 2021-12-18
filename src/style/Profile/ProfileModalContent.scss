@@ -1,0 +1,95 @@
+.modal-content-container {
+	height: 100%;
+}
+
+#modal-content {
+	@include object(405px, inherit, '');
+	@include flex(center, center, column);
+}
+
+.modal-content-header,
+.modal-content-footer {
+	@include flex('', center, '');
+	width: 100%;
+}
+
+.modal-content-header {
+	padding: 14px;
+	border-bottom: 1px solid $border-color;
+
+	ul {
+		width: 100%;
+	}
+	i {
+		cursor: pointer;
+	}
+}
+
+.modal-content-header-avatar,
+.modal-content-body-avatar {
+	@include object(32px, 32px, '');
+	margin-right: 14px;
+
+	img {
+		@include object(inherit, inherit, '');
+		border-radius: 50%;
+	}
+}
+
+.modal-content-header-name {
+	@include font(14px, '', bold, 'Roboto');
+}
+
+.modal-content-header-loacation {
+	font-size: 12px;
+	padding-top: 4px;
+}
+
+.modal-content-body {
+	@include object(100%, 100%, '');
+	display: flex;
+	padding: 14px;
+}
+
+.modal-content-body-text {
+	span {
+		font-size: 14px;
+		&:first-child {
+			@include font(15px, '', bold, 'Roboto');
+			margin-right: 4px;
+		}
+		&:last-child {
+			@include font(12px, gray, '', '');
+			display: block;
+			margin-top: 6px;
+		}
+	}
+}
+
+.modal-content-footer {
+	border-top: 1px solid $border-color;
+}
+
+.modal-content-footer-reply {
+	@include flex(space-between, center, '');
+	width: 100%;
+
+	form {
+		width: inherit;
+		textarea {
+			@include object(90%, auto, 'Noto Sans KR');
+			border: 0;
+			resize: none;
+			padding: 16px 0 0 14px;
+
+			&::-webkit-scrollbar {
+				display: none;
+			}
+		}
+
+		button {
+			@include font(14px, $point-color, bold, 'Noto Sans KR');
+			background: transparent;
+		}
+	}
+}

@@ -19,7 +19,7 @@ import firebase from 'firebase/compat/app';
 import 'firebase/compat/storage';
 
 export default {
-	name: 'NavPostStep1',
+	name: 'NavModal1',
 	computed: {
 		...mapState(['imgFile', 'imgUrl', 'uploadStep']),
 	},
@@ -29,8 +29,11 @@ export default {
 
 		uploadImg(e) {
 			this.setImgFile(e.target.files[0]);
+			// Create a root ref
 			const storageRef = firebase.storage().ref();
+			// Create a reference to 'image/file.jpg'
 			const saveImgTo = storageRef.child(`image/${this.imgFile.name}`);
+			// upload
 			const upload = saveImgTo.put(this.imgFile);
 
 			upload.on(
@@ -52,5 +55,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/style/NavPost.scss';
+@import '@/style/Nav/NavModal.scss';
 </style>

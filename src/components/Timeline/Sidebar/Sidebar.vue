@@ -23,6 +23,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/style/Sidebar.scss';
-@import '@/style/UserSuggestion.scss';
+@import '@/style/Sidebar/Sidebar.scss';
+@import '@/style/Sidebar/UserSuggestion.scss';
 </style>

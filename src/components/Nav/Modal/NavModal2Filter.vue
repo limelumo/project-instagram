@@ -16,7 +16,7 @@
 import { mapState, mapMutations } from 'vuex';
 
 export default {
-	name: 'NavPostFilter',
+	name: 'NavModal2Filter',
 	computed: {
 		...mapState(['imgUrl']),
 	},
@@ -53,5 +53,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/style/NavPostFilter.scss';
+@import '@/style/Nav/NavModal2Filter.scss';
 </style>

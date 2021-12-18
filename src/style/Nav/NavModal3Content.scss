@@ -39,10 +39,14 @@
 	border-bottom: 1px solid $border-color;
 	padding: 8px;
 
+	label {
+		width: 100%;
+	}
+
 	input {
 		border: 0;
 		padding: 4px 9px;
-		width: 100%;
+		width: inherit;
 	}
 
 	i {

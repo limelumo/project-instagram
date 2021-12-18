@@ -20,5 +20,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/style/DM.scss';
+@import '@/style/DM/DM.scss';
 </style>

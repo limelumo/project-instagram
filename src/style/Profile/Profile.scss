@@ -4,6 +4,7 @@
 	padding-top: 30px;
 	position: absolute;
 	top: 60px;
+	min-height: calc(100% - 60px);
 }
 
 #profile {
@@ -26,7 +27,6 @@
 	img {
 		@include object(150px, 150px, '');
 		border-radius: 50%;
-		border: 1px solid $border-color;
 	}
 }
 
@@ -52,5 +52,5 @@
 }
 
 .profile-imgs-container {
-	margin-top: 46px;
+	margin: 46px 0;
 }

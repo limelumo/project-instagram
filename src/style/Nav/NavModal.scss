@@ -1,3 +1,16 @@
+.NavModal {
+	&-enter,
+	&-leave-to {
+		opacity: 0;
+		transition: opacity 300ms ease-in;
+	}
+
+	&-enter-to,
+	&-leave {
+		transition: opacity 300ms ease-out;
+	}
+}
+
 #modal {
 	@include flex(center, center, column);
 	position: fixed;
@@ -8,9 +21,6 @@
 	background-color: rgba(0, 0, 0, 0.65);
 	z-index: 100;
 	overflow-y: hidden;
-	// &::-webkit-scrollbar {
-	// 	display: none important;
-	// }
 }
 
 .modal-closeBtn-container {
@@ -30,14 +40,6 @@
 		}
 	}
 }
-
-// .modal-container {
-// 	animation: IGCoreModalShow 0.1s ease-out;
-// 	flex-shrink: 1;
-// 	justify-content: center;
-// 	margin: 20px;
-// 	max-height: calc(100% - 40px);
-// }
 
 .modal-box {
 	background-color: white;
@@ -105,17 +107,4 @@
 
 .modal-box-img {
 	@include object(705px, 705px, '');
-}
-
-.NavPost {
-	&-enter,
-	&-leave-to {
-		opacity: 0;
-		transition: opacity 300ms ease-in;
-	}
-
-	&-enter-to,
-	&-leave {
-		transition: opacity 300ms ease-out;
-	}
 }

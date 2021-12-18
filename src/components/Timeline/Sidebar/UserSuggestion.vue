@@ -21,5 +21,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/style/UserSuggestion.scss';
+@import '@/style/Sidebar/UserSuggestion.scss';
 </style>

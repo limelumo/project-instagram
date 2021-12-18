@@ -3,14 +3,14 @@
 		<div id="profile">
 			<header class="profile-header">
 				<span class="profile-avatar">
-					<img src="@/assets/flitto.png" alt="profile-img" />
+					<img src="@/assets/profile.png" alt="profile-img" />
 				</span>
 
 				<span class="profile-info">
 					<p class="profile-info-user">{{ name }}</p>
 					<ul class="profile-info-nums">
 						<li>
-							게시물 <b>{{ imgCount }}</b>
+							게시물 <b>{{ profilePosts.length }}</b>
 						</li>
 						<li>팔로워 <b>96</b></li>
 						<li>팔로우 <b>70</b></li>
@@ -19,38 +19,34 @@
 			</header>
 
 			<section class="profile-imgs-container">
-				<ProfileImgs />
+				<ProfilePosts />
 			</section>
 		</div>
 	</article>
 </template>
 
 <script>
-import ProfileImgs from './ProfileImgs.vue';
-import firebase from 'firebase/compat/app';
-import { mapState } from 'vuex';
+import ProfilePosts from './ProfilePosts.vue';
+import { mapState, mapActions } from 'vuex';
 
 export default {
 	name: 'Profile',
 	components: {
-		ProfileImgs,
-	},
-	data() {
-		return {
-			imgCount: 34,
-		};
+		ProfilePosts,
 	},
 	computed: {
-		...mapState(['name']),
+		...mapState(['name', 'profilePosts']),
 	},
-
 	created() {
-		const user = firebase.auth().currentUser.displayName;
-		return this.$store.commit('setUserName', user);
+		this.getPostData();
+		this.getUserName();
+	},
+	methods: {
+		...mapActions(['getPostData', 'getUserName']),
 	},
 };
 </script>
 
 <style lang="scss" scoped>
-@import '@/style/Profile.scss';
+@import '@/style/Profile/Profile.scss';
 </style>

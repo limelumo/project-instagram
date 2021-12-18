@@ -6,7 +6,7 @@
 					<i class="fas fa-arrow-left"></i>
 				</li>
 				<li class="modal-box-header-title">새 게시물 만들기</li>
-				<li class="modal-box-header-next">공유하기</li>
+				<li class="modal-box-header-next" @click="uploadPost">공유하기</li>
 			</ul>
 
 			<section class="modal-box-body">
@@ -14,25 +14,26 @@
 					<img :src="imgUrl" :class="filtered" alt="uploadImg" />
 				</div>
 
-				<NavPostContent />
+				<NavModal3Content />
 			</section>
 		</div>
 	</div>
 </template>
 
 <script>
-import { mapState, mapMutations } from 'vuex';
-import NavPostContent from './NavPostContent.vue';
+import { mapState, mapMutations, mapActions } from 'vuex';
+import NavModal3Content from './NavModal3Content.vue';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/storage';
+import 'firebase/compat/firestore';
 
 export default {
 	name: 'NavPostStep3',
 	components: {
-		NavPostContent,
+		NavModal3Content,
 	},
 	computed: {
-		...mapState(['imgUrl', 'filtered']),
+		...mapState(['name', 'postText', 'postLocation', 'imgUrl', 'filtered']),
 	},
 
 	data() {
@@ -42,32 +43,36 @@ export default {
 	},
 
 	methods: {
-		...mapMutations(['setUploadStep']),
+		...mapMutations(['controlModal']),
+		...mapActions(['getPostData']),
 
 		uploadPost() {
-			(this.toSave = {
-				Avater: this.userAvatar,
+			this.toSave = {
 				user: this.name,
-				content: this.text,
+				content: this.postText,
 				date: new Date(),
 				img: this.imgUrl,
-				locaton: this.location,
-			}),
-				firebase
-					.firestore()
-					.collection('userPosts')
-					.add(this.toSave)
-					.then((result) => {
-						console.log(result);
-					})
-					.catch((error) => {
-						console.log(error);
-					});
+				filter: this.filtered,
+				location: this.postLocation,
+			};
+			this.addToDB();
+		},
+
+		addToDB() {
+			firebase
+				.firestore()
+				.collection('userPosts')
+				.add(this.toSave)
+				.then(this.controlModal(false))
+				.then(this.getPostData)
+				.catch((error) => {
+					console.log(error);
+				});
 		},
 	},
 };
 </script>
 
 <style lang="scss" scoped>
-@import '@/style/NavPost.scss';
+@import '@/style/Nav/NavModal.scss';
 </style>

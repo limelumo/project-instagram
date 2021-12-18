@@ -5,7 +5,7 @@
 		<form @submit.prevent="validate">
 			<div class="signin-input">
 				<input type="text" v-model="email" placeholder="이메일" />
-				<input type="text" v-model="name" placeholder="사용자 이름" />
+				<input type="text" :value="name" @input="updateUserName" placeholder="사용자 이름" />
 				<input type="password" v-model="password" placeholder="비밀번호" />
 				<input type="password" v-model="rePassword" placeholder="비밀번호 확인" />
 			</div>
@@ -35,7 +35,7 @@
 
 <script>
 import firebase from 'firebase/compat/app';
-import { mapState } from 'vuex';
+import { mapState, mapMutations } from 'vuex';
 
 export default {
 	name: 'SignUp',
@@ -50,21 +50,16 @@ export default {
 
 	computed: {
 		...mapState(['name']),
-		name: {
-			get() {
-				return this.name;
-			},
-			set(value) {
-				this.$store.commit('setUserName', value);
-			},
-		},
 	},
-
 	created() {
 		return (this.message = '');
 	},
-
 	methods: {
+		...mapMutations(['setUserName']),
+		updateUserName(e) {
+			this.setUserName(e.target.value);
+		},
+
 		validate() {
 			if (this.password !== this.rePassword) {
 				this.message = '비밀번호가 일치하지 않습니다';
@@ -75,7 +70,7 @@ export default {
 				.auth()
 				.createUserWithEmailAndPassword(this.email, this.password)
 				.then(() => {
-					this.setUserName();
+					this.createUserName();
 					this.$router.replace({ name: 'main' });
 				})
 				.catch((error) => {
@@ -92,7 +87,8 @@ export default {
 					}
 				});
 		},
-		setUserName() {
+
+		createUserName() {
 			firebase.auth().currentUser.updateProfile({
 				displayName: this.name,
 			});

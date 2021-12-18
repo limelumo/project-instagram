@@ -6,7 +6,6 @@
 
 .profile-imgs-item {
 	@include object(100%, 293px, '');
-	border: 1px solid $border-color;
 	position: relative;
 }
 
@@ -26,6 +25,7 @@
 
 		i {
 			margin-right: 6px;
+			color: white;
 		}
 	}
 }
@@ -33,7 +33,6 @@
 .profile-imgs-item:hover {
 	.profile-imgs-item-hover {
 		background-color: rgba(0, 0, 0, 0.5);
-
 		li {
 			opacity: 100;
 		}

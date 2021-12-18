@@ -12,12 +12,7 @@
 				{{ message }}
 			</div>
 
-			<button
-				type="submit"
-				class="signin-button"
-				:class="{ active: email && password }"
-				:disabled="!this.email || !this.password"
-			>
+			<button type="submit" class="signin-button" :class="{ active: email && password }" :disabled="!this.email || !this.password">
 				로그인
 			</button>
 		</form>
@@ -25,9 +20,7 @@
 		<footer>
 			<div class="signin-footer">
 				계정이 없으신가요?&nbsp;
-				<router-link to="/sign-up" class="signin-footer-join">
-					가입하기</router-link
-				>
+				<router-link to="/sign-up" class="signin-footer-join"> 가입하기</router-link>
 			</div>
 		</footer>
 	</div>

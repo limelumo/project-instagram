@@ -33,20 +33,20 @@
 			</ul>
 		</section>
 
-		<NavPost v-if="isModalOpen" />
+		<NavModal v-if="isModalOpen" />
 	</nav>
 </template>
 
 <script>
 import NavPopover from './NavPopover.vue';
-import NavPost from './NavPost.vue';
+import NavModal from './Modal/NavModal.vue';
 import { mapState, mapMutations } from 'vuex';
 
 export default {
 	name: 'Nav',
 	components: {
 		NavPopover,
-		NavPost,
+		NavModal,
 	},
 	computed: {
 		...mapState(['isModalOpen']),
@@ -58,5 +58,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/style/Nav.scss';
+@import '@/style/Nav/Nav.scss';
 </style>

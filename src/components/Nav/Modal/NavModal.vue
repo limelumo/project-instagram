@@ -1,31 +1,31 @@
 <template>
-	<transition name="NavPost" appear>
-		<article id="modal">
+	<transition name="NavModal" appear>
+		<div id="modal">
 			<div class="modal-closeBtn-container" @click="controlModal(false)">
 				<button type="button">
 					<i class="fas fa-times"></i>
 				</button>
 			</div>
 
-			<NavPostStep1 v-if="uploadStep == 1" />
-			<NavPostStep2 v-if="uploadStep == 2" />
-			<NavPostStep3 v-if="uploadStep == 3" />
-		</article>
+			<NavModal1 v-if="uploadStep == 1" />
+			<NavModal2 v-if="uploadStep == 2" />
+			<NavModal3 v-if="uploadStep == 3" />
+		</div>
 	</transition>
 </template>
 
 <script>
 import { mapState, mapMutations } from 'vuex';
-import NavPostStep1 from './NavPostStep1.vue';
-import NavPostStep2 from './NavPostStep2.vue';
-import NavPostStep3 from './NavPostStep3.vue';
+import NavModal1 from './NavModal1.vue';
+import NavModal2 from './NavModal2.vue';
+import NavModal3 from './NavModal3.vue';
 
 export default {
-	name: 'NavPost',
+	name: 'NavModal',
 	components: {
-		NavPostStep1,
-		NavPostStep2,
-		NavPostStep3,
+		NavModal1,
+		NavModal2,
+		NavModal3,
 	},
 	computed: {
 		...mapState(['uploadStep']),
@@ -37,5 +37,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/style/NavPost.scss';
+@import '@/style/Nav/NavModal.scss';
 </style>
