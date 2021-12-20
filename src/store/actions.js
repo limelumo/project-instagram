@@ -11,11 +11,13 @@ export default {
 		firebase
 			.firestore()
 			.collection('userPosts')
+			.orderBy('date', 'desc')
 			.get()
 			.then((result) => {
 				const data = result.docs.map((doc) => {
 					return doc.data();
 				});
+				console.log(data);
 				context.commit('SET_PROFILEPOSTS', data);
 			});
 	},

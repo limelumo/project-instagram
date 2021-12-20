@@ -7,7 +7,7 @@
 			<input class="nav-input" type="text" placeholder="검색" />
 
 			<ul class="nav-icons">
-				<!-- To Main -->
+				<!-- Main -->
 				<li>
 					<router-link to="/main">
 						<i class="fas fa-home"></i>

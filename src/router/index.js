@@ -27,7 +27,6 @@ const router = new VueRouter({
 		{
 			path: '/main',
 			name: 'main',
-			// component: Main,
 			component: () => import('@/pages/Main.vue'),
 			meta: { requiresAuth: true },
 		},
