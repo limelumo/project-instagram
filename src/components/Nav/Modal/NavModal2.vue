@@ -2,11 +2,11 @@
 	<div class="modal-container">
 		<div class="modal-box">
 			<ul class="modal-box-header">
-				<li @click="setUploadStep(1)">
+				<li @click="SET_UPLOADSTEP(1)">
 					<i class="fas fa-arrow-left"></i>
 				</li>
 				<li class="modal-box-header-title">편집</li>
-				<li class="modal-box-header-next" @click="setUploadStep(3)">다음</li>
+				<li class="modal-box-header-next" @click="SET_UPLOADSTEP(3)">다음</li>
 			</ul>
 
 			<section class="modal-box-body">
@@ -33,7 +33,7 @@ export default {
 		...mapState(['imgUrl', 'filtered']),
 	},
 	methods: {
-		...mapMutations(['setUploadStep']),
+		...mapMutations(['SET_UPLOADSTEP']),
 	},
 };
 </script>

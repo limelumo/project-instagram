@@ -2,12 +2,12 @@ import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
 
 export default {
-	getUserName(context) {
+	GET_USERNAME(context) {
 		const user = firebase.auth().currentUser.displayName;
-		context.commit('setUserName', user);
+		context.commit('SET_USERNAME', user);
 	},
 
-	getPostData(context) {
+	GET_POSTDATA(context) {
 		firebase
 			.firestore()
 			.collection('userPosts')
@@ -16,7 +16,7 @@ export default {
 				const data = result.docs.map((doc) => {
 					return doc.data();
 				});
-				context.commit('setProfilePosts', data);
+				context.commit('SET_PROFILEPOSTS', data);
 			});
 	},
 };

@@ -10,34 +10,22 @@
 					<li class="modal-content-header-name">{{ name }}</li>
 					<li class="modal-content-header-loacation">{{ profilePosts[postNum].location }}</li>
 				</ul>
-				<span @click="controlDelModal(true)">
+				<span @click="CONTROL_DELMODAL(true)">
 					<i class="fas fa-ellipsis-h"></i>
 				</span>
 			</header>
 
 			<div class="modal-content-body">
-				<div class="modal-content-body-avatar">
-					<img src="@/assets/profile.png" />
-				</div>
-				<div class="modal-content-body-text">
-					<span>{{ name }}</span>
-					<span>{{ profilePosts[postNum].content }}</span>
-					<span>{{ getDate }}</span>
-				</div>
+				<ProfileModalContentText />
+				<ProfileModalContentReply />
 			</div>
 
 			<div class="modal-content-footer">
-				<!-- 좋아요 클릭, 그 밑에 댓글 달기 박스 -->
-				<section></section>
-				<section></section>
-				<section class="modal-content-footer-reply">
-					<form>
-						<textarea placeholder="댓글 달기..."></textarea>
-						<button>게시</button>
-					</form>
-				</section>
+				<ProfileModalContentLikes />
+				<ProfileModalContentWriteReply />
 			</div>
 		</div>
+
 		<ProfileDeleteModal v-if="isDelModalOpen" />
 	</div>
 </template>
@@ -45,24 +33,29 @@
 <script>
 import { mapState, mapActions, mapMutations } from 'vuex';
 import ProfileDeleteModal from './ProfileDeleteModal.vue';
+import ProfileModalContentText from './ProfileModalContentText.vue';
+import ProfileModalContentReply from './ProfileModalContentReply.vue';
+import ProfileModalContentLikes from './ProfileModalContentLikes.vue';
+import ProfileModalContentWriteReply from './ProfileModalContentWriteReply.vue';
 
 export default {
 	name: 'ProfilePostModalContent',
 	components: {
 		ProfileDeleteModal,
+		ProfileModalContentText,
+		ProfileModalContentReply,
+		ProfileModalContentWriteReply,
+		ProfileModalContentLikes,
 	},
 	computed: {
-		...mapState(['name', 'profilePosts', 'postNum', 'isDelModalOpen', 'options']),
-		getDate() {
-			return this.profilePosts[this.postNum].date.toDate().toLocaleDateString('ko-KR', this.options);
-		},
+		...mapState(['name', 'profilePosts', 'postNum', 'isDelModalOpen']),
 	},
 	created() {
-		this.getPostData();
+		this.GET_POSTDATA();
 	},
 	methods: {
-		...mapMutations(['controlDelModal']),
-		...mapActions(['getPostData', 'setPostNum']),
+		...mapMutations(['CONTROL_DELMODAL']),
+		...mapActions(['GET_POSTDATA', 'SET_POSTNUM']),
 	},
 };
 </script>

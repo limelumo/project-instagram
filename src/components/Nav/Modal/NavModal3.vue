@@ -2,7 +2,7 @@
 	<div class="modal-container">
 		<div class="modal-box">
 			<ul class="modal-box-header">
-				<li @click="setUploadStep(2)">
+				<li @click="SET_UPLOADSTEP(2)">
 					<i class="fas fa-arrow-left"></i>
 				</li>
 				<li class="modal-box-header-title">새 게시물 만들기</li>
@@ -43,8 +43,8 @@ export default {
 	},
 
 	methods: {
-		...mapMutations(['controlModal']),
-		...mapActions(['getPostData']),
+		...mapMutations(['CONTROL_MODAL']),
+		...mapActions(['GET_POSTDATA']),
 
 		uploadPost() {
 			this.toSave = {
@@ -63,8 +63,8 @@ export default {
 				.firestore()
 				.collection('userPosts')
 				.add(this.toSave)
-				.then(this.controlModal(false))
-				.then(this.getPostData)
+				.then(this.CONTROL_MODAL(false))
+				.then(this.GET_POSTDATA)
 				.catch((error) => {
 					console.log(error);
 				});

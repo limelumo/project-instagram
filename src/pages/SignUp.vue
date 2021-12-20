@@ -55,9 +55,9 @@ export default {
 		return (this.message = '');
 	},
 	methods: {
-		...mapMutations(['setUserName']),
+		...mapMutations(['SET_USERNAME']),
 		updateUserName(e) {
-			this.setUserName(e.target.value);
+			this.SET_USERNAME(e.target.value);
 		},
 
 		validate() {

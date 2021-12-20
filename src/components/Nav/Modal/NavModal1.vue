@@ -6,8 +6,19 @@
 			</section>
 
 			<section class="modal-upload">
-				<input @change="uploadImg" accept="image/*" type="file" id="fileUpload" />
-				<label for="fileUpload"> 컴퓨터에서 선택 </label>
+				<ul class="modal-upload-drag">
+					<li>
+						<img src="@/assets/drag.png" />
+					</li>
+					<li>
+						<p>사진과 동영상을 여기에 끌어다 놓으세요</p>
+					</li>
+				</ul>
+
+				<div class="modal-upload-choose">
+					<input @change="uploadImg" accept="image/*" type="file" id="fileUpload" />
+					<label for="fileUpload"> 컴퓨터에서 선택 </label>
+				</div>
 			</section>
 		</div>
 	</div>
@@ -25,30 +36,19 @@ export default {
 	},
 
 	methods: {
-		...mapMutations(['setImgFile', 'setImgUrl', 'setUploadStep']),
+		...mapMutations(['SET_IMGFILE', 'SET_IMGURL', 'SET_UPLOADSTEP']),
 
 		uploadImg(e) {
-			this.setImgFile(e.target.files[0]);
-			// Create a root ref
-			const storageRef = firebase.storage().ref();
-			// Create a reference to 'image/file.jpg'
-			const saveImgTo = storageRef.child(`image/${this.imgFile.name}`);
-			// upload
-			const upload = saveImgTo.put(this.imgFile);
+			this.SET_IMGFILE(e.target.files[0]);
 
-			upload.on(
-				'state_changed',
-				null,
-				(error) => {
-					console.error(error);
-				},
-				() => {
-					upload.snapshot.ref.getDownloadURL().then((url) => {
-						this.setImgUrl(url);
-						this.setUploadStep(2);
-					});
-				}
-			);
+			const storageRef = firebase.storage().ref(); // Create a root ref
+			const saveImgTo = storageRef.child(`image/${this.imgFile.name}`); // Create a reference to 'image/file.jpg'
+			const upload = saveImgTo.put(this.imgFile); // upload
+
+			upload.snapshot.ref.getDownloadURL().then((url) => {
+				this.SET_IMGURL(url);
+				this.SET_UPLOADSTEP(2);
+			});
 		},
 	},
 };

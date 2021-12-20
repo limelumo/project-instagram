@@ -1,0 +1,32 @@
+section {
+	display: flex;
+}
+
+.padding {
+	padding: 16px 0;
+}
+
+.modal-content-body-avatar {
+	@include object(32px, 32px, '');
+	margin-right: 14px;
+
+	img {
+		@include object(inherit, inherit, '');
+		border-radius: 50%;
+	}
+}
+
+.modal-content-body-text {
+	span {
+		font-size: 14px;
+		&:first-child {
+			@include font(15px, '', bold, 'Roboto');
+			margin-right: 4px;
+		}
+		&:last-child {
+			@include font(12px, gray, '', '');
+			display: block;
+			margin-top: 6px;
+		}
+	}
+}

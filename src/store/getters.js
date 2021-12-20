@@ -8,4 +8,7 @@ export default {
 	getError(state) {
 		return state.error;
 	},
+	GET_MATCHEDUSER: (state) => {
+		return state.profilePosts.filter((post) => post.user == state.name);
+	},
 };

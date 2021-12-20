@@ -3,7 +3,7 @@
 		<div id="modal">
 			<ul class="modal-box">
 				<li @click="getPostID">삭제</li>
-				<li @click="controlDelModal(false)">취소</li>
+				<li @click="CONTROL_DELMODAL(false)">취소</li>
 			</ul>
 		</div>
 	</transition>
@@ -25,8 +25,8 @@ export default {
 		};
 	},
 	methods: {
-		...mapMutations(['controlDelModal', 'isClikedPost', 'setPostId']),
-		...mapActions(['getPostData']),
+		...mapMutations(['CONTROL_DELMODAL', 'SET_CLICKEDPOST']),
+		...mapActions(['GET_POSTDATA']),
 
 		deletePost() {
 			firebase
@@ -35,9 +35,9 @@ export default {
 				.doc(this.id)
 				.delete()
 				.then(() => {
-					this.controlDelModal(false);
-					this.isClikedPost(false);
-					this.getPostData();
+					this.CONTROL_DELMODAL(false);
+					this.SET_CLICKEDPOST(false);
+					this.GET_POSTDATA();
 				});
 		},
 

@@ -6,25 +6,22 @@ import actions from './actions.js';
 
 Vue.use(Vuex);
 
-// const initialState = () => {
-// 	return { user: null };
-// };
-
 const store = new Vuex.Store({
-	// state: initialState(),
 	state: {
 		name: '',
 		isModalOpen: false,
-		uploadStep: 1,
-		imgFile: '',
 		imgUrl: '',
 		filtered: '',
+		isDelModalOpen: false,
+		//
+		uploadStep: 1,
+		imgFile: '',
 		postText: '',
 		postLocation: '',
+		//
 		profilePosts: [],
 		clikedPost: false,
 		postNum: '',
-		isDelModalOpen: false,
 		options: {
 			weekday: 'long',
 			year: 'numeric',

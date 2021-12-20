@@ -5,6 +5,7 @@
 				<p class="nav-title">Vuestargram</p>
 			</router-link>
 			<input class="nav-input" type="text" placeholder="검색" />
+
 			<ul class="nav-icons">
 				<!-- To Main -->
 				<li>
@@ -21,7 +22,7 @@
 				</li>
 
 				<!-- Post Modal -->
-				<li @click="controlModal(true)">
+				<li @click="CONTROL_MODAL(true)">
 					<i class="far fa-plus-square"></i>
 				</li>
 
@@ -52,7 +53,7 @@ export default {
 		...mapState(['isModalOpen']),
 	},
 	methods: {
-		...mapMutations(['controlModal']),
+		...mapMutations(['CONTROL_MODAL']),
 	},
 };
 </script>

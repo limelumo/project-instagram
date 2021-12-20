@@ -1,7 +1,7 @@
 <template>
 	<transition name="NavModal" appear>
 		<div id="modal">
-			<div class="modal-closeBtn-container" @click="controlModal(false)">
+			<div class="modal-closeBtn-container" @click="CONTROL_MODAL(false)">
 				<button type="button">
 					<i class="fas fa-times"></i>
 				</button>
@@ -31,7 +31,7 @@ export default {
 		...mapState(['uploadStep']),
 	},
 	methods: {
-		...mapMutations(['controlModal']),
+		...mapMutations(['CONTROL_MODAL']),
 	},
 };
 </script>

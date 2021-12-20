@@ -1,52 +1,54 @@
 export default {
-	setUserName(state, payload) {
-		state.name = payload;
-	},
-
-	controlModal(state, payload) {
+	CONTROL_MODAL(state, payload) {
 		state.isModalOpen = payload;
 		if (state.isModalOpen) {
 			state.uploadStep = 1;
 		}
 	},
 
-	controlDelModal(state, payload) {
-		state.isDelModalOpen = payload;
+	SET_USERNAME(state, payload) {
+		state.name = payload;
 	},
 
-	setUploadStep(state, payload) {
-		state.uploadStep = payload;
-	},
-
-	setImgFile(state, payload) {
-		state.imgFile = payload;
-	},
-
-	setImgUrl(state, payload) {
-		state.imgUrl = payload;
-	},
-
-	setFilter(state, payload) {
-		state.filtered = payload;
-	},
-
-	setPostText(state, payload) {
-		state.postText = payload;
-	},
-
-	setPostLocation(state, payload) {
-		state.postLocation = payload;
-	},
-
-	setProfilePosts(state, payload) {
+	SET_PROFILEPOSTS(state, payload) {
 		state.profilePosts = payload;
 	},
 
-	isClikedPost(state, payload) {
+	//
+	SET_IMGFILE(state, payload) {
+		state.imgFile = payload;
+	},
+
+	SET_IMGURL(state, payload) {
+		state.imgUrl = payload;
+	},
+
+	SET_UPLOADSTEP(state, payload) {
+		state.uploadStep = payload;
+	},
+
+	SET_FILTER(state, payload) {
+		state.filtered = payload;
+	},
+
+	SET_POSTTEXT(state, payload) {
+		state.postText = payload;
+	},
+
+	SET_POSTLOCATION(state, payload) {
+		state.postLocation = payload;
+	},
+
+	//
+	CONTROL_DELMODAL(state, payload) {
+		state.isDelModalOpen = payload;
+	},
+
+	SET_CLICKEDPOST(state, payload) {
 		state.clikedPost = payload;
 	},
 
-	setPostNum(state, payload) {
+	SET_POSTNUM(state, payload) {
 		state.postNum = payload;
 	},
 };

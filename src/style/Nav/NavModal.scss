@@ -81,7 +81,7 @@
 }
 
 .modal-upload {
-	@include flex(center, center, '');
+	@include flex(center, center, column);
 	@include object(705px, 705px, '');
 	min-height: 348px;
 	min-width: 348px;
@@ -89,6 +89,7 @@
 	input {
 		display: none;
 	}
+
 	label {
 		@include font(14px, white, '', '');
 		cursor: pointer;
@@ -96,6 +97,25 @@
 		border-radius: $border-radius-size;
 		background-color: $point-color;
 	}
+}
+.modal-upload-drag {
+	li {
+		width: 100%;
+		&:first-child {
+			text-align: center;
+			img {
+				width: 100px;
+			}
+		}
+	}
+
+	p {
+		@include font(22px, '', 300, 'Noto Sans KR');
+	}
+}
+
+.modal-upload-choose {
+	padding-top: 32px;
 }
 
 .modal-box-body {

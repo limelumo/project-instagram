@@ -16,10 +16,10 @@ export default {
 		...mapState(['name']),
 	},
 	created() {
-		this.getUserName();
+		this.GET_USERNAME();
 	},
 	methods: {
-		...mapActions(['getUserName']),
+		...mapActions(['GET_USERNAME']),
 	},
 };
 </script>

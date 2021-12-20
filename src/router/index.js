@@ -2,8 +2,6 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import SignIn from '@/pages/SignIn.vue';
 import SignUp from '@/pages/SignUp.vue';
-import Main from '@/pages/Main.vue';
-import MainProfile from '@/pages/MainProfile.vue';
 import DM from '@/pages/DM.vue';
 import firebase from 'firebase/compat/app';
 
@@ -29,18 +27,20 @@ const router = new VueRouter({
 		{
 			path: '/main',
 			name: 'main',
-			component: Main,
+			// component: Main,
+			component: () => import('@/pages/Main.vue'),
 			meta: { requiresAuth: true },
 		},
 		{
 			path: '/profile',
 			name: 'main-profile',
-			component: MainProfile,
+			component: () => import('@/pages/MainProfile.vue'),
 		},
 		{
 			path: '/dm',
 			name: 'dm',
 			component: DM,
+			// ccomponent: () => import('@/pages/DM.vue'),
 		},
 	],
 });

@@ -29,17 +29,17 @@ export default {
 		...mapState(['name', 'postText', 'postLocation']),
 	},
 	methods: {
-		...mapMutations(['setPostText', 'setPostLocation']),
+		...mapMutations(['SET_POSTTEXT', 'SET_POSTLOCATION']),
 
 		updateText(e) {
-			this.setPostText(e.target.value);
+			this.SET_POSTTEXT(e.target.value);
 		},
 		updateLocation(e) {
-			this.setPostLocation(e.target.value);
+			this.SET_POSTLOCATION(e.target.value);
 		},
 	},
 	created() {
-		this.setPostText(null);
+		this.SET_POSTTEXT(null);
 	},
 };
 </script>

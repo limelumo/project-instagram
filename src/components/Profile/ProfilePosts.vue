@@ -5,11 +5,11 @@
 			v-for="(post, i) in profilePosts"
 			:key="i"
 			@click="
-				isClikedPost(true);
-				setPostNum(i);
+				SET_CLICKEDPOST(true);
+				SET_POSTNUM(i);
 			"
 		>
-			<img :src="post.img" :class="post.filter" />
+			<img v-lazy="post.img" :class="post.filter" />
 
 			<ul class="profile-imgs-item-hover">
 				<li class="profile-imgs-icon-heart">
@@ -46,8 +46,8 @@ export default {
 		};
 	},
 	methods: {
-		...mapMutations(['isClikedPost', 'setPostNum']),
-		...mapActions(['getPostData']),
+		...mapMutations(['SET_CLICKEDPOST', 'SET_POSTNUM']),
+		...mapActions(['GET_POSTDATA']),
 	},
 };
 </script>

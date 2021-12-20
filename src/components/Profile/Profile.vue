@@ -10,7 +10,7 @@
 					<p class="profile-info-user">{{ name }}</p>
 					<ul class="profile-info-nums">
 						<li>
-							게시물 <b>{{ profilePosts.length }}</b>
+							게시물 <b>{{ matchedPosts.length }}</b>
 						</li>
 						<li>팔로워 <b>96</b></li>
 						<li>팔로우 <b>70</b></li>
@@ -19,7 +19,7 @@
 			</header>
 
 			<section class="profile-imgs-container">
-				<ProfilePosts />
+				<ProfilePosts v-if="matchedPosts.length" />
 			</section>
 		</div>
 	</article>
@@ -27,7 +27,7 @@
 
 <script>
 import ProfilePosts from './ProfilePosts.vue';
-import { mapState, mapActions } from 'vuex';
+import { mapState, mapGetters, mapActions } from 'vuex';
 
 export default {
 	name: 'Profile',
@@ -36,13 +36,14 @@ export default {
 	},
 	computed: {
 		...mapState(['name', 'profilePosts']),
+		...mapGetters({ matchedPosts: 'GET_MATCHEDUSER' }),
 	},
 	created() {
-		this.getPostData();
-		this.getUserName();
+		this.GET_POSTDATA();
+		this.GET_USERNAME();
 	},
 	methods: {
-		...mapActions(['getPostData', 'getUserName']),
+		...mapActions(['GET_POSTDATA', 'GET_USERNAME']),
 	},
 };
 </script>

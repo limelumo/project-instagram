@@ -2,7 +2,7 @@
 	<div id="modal-filters">
 		<p>필터</p>
 		<ul class="modal-filter-container">
-			<li class="modal-filter" v-for="(filter, i) in filters" :key="i" @click="setFilter(filter)">
+			<li class="modal-filter" v-for="(filter, i) in filters" :key="i" @click="SET_FILTER(filter)">
 				<img :src="imgUrl" :class="filter" />
 				<label class="modal-filter-name">
 					{{ filter }}
@@ -46,8 +46,7 @@ export default {
 	},
 
 	methods: {
-		...mapMutations(['setFilter']),
-		applyFilter() {},
+		...mapMutations(['SET_FILTER']),
 	},
 };
 </script>

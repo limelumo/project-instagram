@@ -2,7 +2,7 @@
 	<transition name="PostModal" appear>
 		<div id="modal">
 			<!-- 백그라운드 닫기 버튼 -->
-			<div class="modal-closeBtn-container" @click="isClikedPost(false)">
+			<div class="modal-closeBtn-container" @click="SET_CLICKEDPOST(false)">
 				<button type="button">
 					<i class="fas fa-times"></i>
 				</button>
@@ -34,7 +34,7 @@ export default {
 		...mapState(['profilePosts', 'postNum', 'filtered']),
 	},
 	methods: {
-		...mapMutations(['controlModal', 'isClikedPost']),
+		...mapMutations(['CONTROL_MODAL', 'SET_CLICKEDPOST']),
 	},
 };
 </script>
