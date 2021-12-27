@@ -10,7 +10,7 @@
 
 			<!-- 팔로우 버튼 -->
 			<button type="button" class="user-suggestion-list-follow" :class="{ followed: followingClicked }" @click="followThisUser">
-				팔로우
+				{{ followBtnText }}
 			</button>
 		</div>
 	</div>
@@ -30,6 +30,7 @@ export default {
 	data() {
 		return {
 			followingClicked: false,
+			followBtnText: '팔로우',
 		};
 	},
 	methods: {
@@ -46,13 +47,19 @@ export default {
 				.firestore()
 				.collection('following')
 				.add(this.toSave)
-				.then(this.CONTROL_FOLLOWINGMODAL(false))
-				.then(this.GET_FOLLOWINGDATA)
+				.then(() => {
+					this.GET_FOLLOWINGDATA();
+					this.followingClicked = !this.followingClicked;
+
+					if (this.followingClicked === true) {
+						this.followBtnText = '팔로잉';
+					} else {
+						this.followBtnText = '팔로우';
+					}
+				})
 				.catch((error) => {
 					console.log(error);
 				});
-
-			this.followingClicked = !this.followingClicked;
 		},
 	},
 };
