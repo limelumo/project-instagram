@@ -1,0 +1,61 @@
+.story {
+	&-button {
+		@include flex(center, center, column);
+		background: transparent;
+		padding: 0 6px;
+	}
+
+	&-img {
+		@include object(64px, 64px, '');
+		position: relative;
+		background-image: linear-gradient(#fff, #fff), linear-gradient(to right, red 0%, orange 100%);
+		background-origin: border-box;
+		background-clip: content-box, border-box;
+		border: 2.5px solid transparent;
+		border-radius: 50%;
+
+		img {
+			@include object(58px, 58px, '');
+			border: 1px solid #eee;
+			border-radius: 50%;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+	}
+
+	&-id {
+		margin-top: 4px;
+		font-size: 12px;
+	}
+}
+
+.swiper-slide {
+	width: auto; // auto 값을 지정해야 슬라이드의 width값이 텍스트 길이 기준으로 바뀜
+	//min-width: 56px; // min-width를 지정하지 않을 경우 텍스트가 1개 내지는 2개가 들어갈 때 탭 모양이 상이할 수 있으므로 넣어준다.
+	&:first-child {
+		margin-left: 16px;
+	}
+	&:last-child {
+		margin-right: 16px;
+	}
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+	@include object(24px, 24px, white);
+	margin-top: -12px;
+	border-radius: 50%;
+	box-shadow: 1px 1px 2px 2px #ccc;
+	--swiper-navigation-color: gray;
+	--swiper-navigation-size: 12px;
+}
+
+.swiper-button-prev {
+	left: 3px;
+}
+
+.swiper-button-next {
+	right: 3px;
+}

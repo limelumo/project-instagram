@@ -2,7 +2,7 @@
 	<div class="profile-imgs-items">
 		<div
 			class="profile-imgs-item"
-			v-for="(post, i) in profilePosts"
+			v-for="(post, i) in matchedPosts"
 			:key="i"
 			@click="
 				SET_CLICKEDPOST(true);
@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import { mapActions, mapMutations, mapState } from 'vuex';
+import { mapState, mapGetters, mapMutations } from 'vuex';
 import ProfileModal from './Modal/ProfileModal.vue';
 
 export default {
@@ -36,18 +36,20 @@ export default {
 	components: {
 		ProfileModal,
 	},
-	computed: {
-		...mapState(['imgUrl', 'filtered', 'profilePosts', 'clikedPost']),
-	},
 	data() {
 		return {
 			likedCount: 20,
 			commentCount: 5,
 		};
 	},
+	computed: {
+		...mapState('profile', ['imgUrl', 'clikedPost']),
+		...mapState('nav', ['filtered']),
+		...mapState(['friendPosts']),
+		...mapGetters({ matchedPosts: 'getMatchedUser' }),
+	},
 	methods: {
-		...mapMutations(['SET_CLICKEDPOST', 'SET_POSTNUM']),
-		...mapActions(['GET_POSTDATA']),
+		...mapMutations('profile', ['SET_CLICKEDPOST', 'SET_POSTNUM']),
 	},
 };
 </script>

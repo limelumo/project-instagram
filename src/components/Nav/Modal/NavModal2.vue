@@ -30,14 +30,14 @@ export default {
 		NavModal2Filter,
 	},
 	computed: {
-		...mapState(['imgUrl', 'filtered']),
+		...mapState('nav', ['imgUrl', 'filtered']),
 	},
 	methods: {
-		...mapMutations(['SET_UPLOADSTEP']),
+		...mapMutations('nav', ['SET_UPLOADSTEP']),
 	},
 };
 </script>
 
 <style lang="scss" scoped>
-@import '@/style/Nav/NavModal.scss';
+@import '@/style/Nav/modal/NavModal.scss';
 </style>

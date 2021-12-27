@@ -1,0 +1,115 @@
+#storymodal-content {
+	@include object(auto, 85vh, gray);
+	@include flex(center, center, column);
+	min-width: 480px;
+	border-radius: $border-radius-size * 3;
+	position: relative;
+}
+
+.content-img {
+	position: absolute;
+	border-radius: $border-radius-size * 3;
+}
+
+.content-header-progress {
+	@include object(100%, 3px, rgba(215, 215, 215, 0.4));
+	overflow: hidden;
+	position: relative;
+
+	&-bar {
+		@include object(100%, inherit, white);
+		position: absolute;
+		padding: 0 15px;
+		animation: progress 5s linear forwards;
+	}
+}
+
+@keyframes progress {
+	from {
+		transform: translatex(-100%);
+	}
+	to {
+		transform: translatex(0%);
+	}
+}
+
+.content-header {
+	@include object(100%, '', '');
+	background: linear-gradient(0deg, rgba(38, 38, 38, 0) 0%, rgba(38, 38, 38, 0.6) 100%);
+	position: absolute;
+	top: 0;
+	padding: 20px 16px 32px;
+	z-index: 1;
+	border-radius: 9px 9px 0 0;
+}
+
+.content-header-info {
+	@include flex('', center, '');
+	margin-top: 14px;
+
+	img {
+		@include object(32px, 32px, '');
+		border-radius: 50%;
+	}
+
+	li {
+		padding-left: 10px;
+
+		&:nth-child(1) {
+			padding-left: 0;
+		}
+		&:nth-child(2) {
+			@include font(1em, white, bold, '');
+		}
+		&:nth-child(3) {
+			@include font(0.9em, #ccc, '', '');
+		}
+	}
+}
+
+.content-footer {
+	@include flex(center, flex-end, '');
+	@include object(100%, 150px, '');
+	position: absolute;
+	background: linear-gradient(180deg, rgba(38, 38, 38, 0) 0%, rgba(38, 38, 38, 0.6) 100%);
+	bottom: 0;
+	padding: 0 16px 16px;
+	z-index: 1;
+	border-radius: 0 0 9px 9px;
+
+	.content-footer-container {
+		display: flex;
+		width: 100%;
+
+		div {
+			@include flex('', center, '');
+			width: 100%;
+
+			textarea {
+				@include object(100%, auto, transparent);
+				@include font(14px, white, '', 'Noto Sans KR');
+				padding: 10px 16px;
+				border: 1px solid white;
+				border-radius: 100vh;
+				overflow: visible;
+				resize: none;
+
+				&::-webkit-scrollbar {
+					display: none;
+				}
+
+				&::placeholder {
+					@include flex('', center, '');
+					color: white;
+				}
+			}
+		}
+	}
+
+	button {
+		@include font(0.9em, white, bold, '');
+		width: 12%;
+		background: transparent;
+		padding-left: 8px;
+	}
+}

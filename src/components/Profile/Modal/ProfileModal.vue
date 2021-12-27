@@ -1,6 +1,6 @@
 <template>
 	<transition name="PostModal" appear>
-		<div id="modal">
+		<div class="modal">
 			<!-- 백그라운드 닫기 버튼 -->
 			<div class="modal-closeBtn-container" @click="SET_CLICKEDPOST(false)">
 				<button type="button">
@@ -23,7 +23,7 @@
 
 <script>
 import { mapState, mapMutations } from 'vuex';
-import ProfileModalContent from './ProfileModalContent.vue';
+import ProfileModalContent from './content/ProfileModalContent.vue';
 
 export default {
 	name: 'ProfileModal',
@@ -31,15 +31,17 @@ export default {
 		ProfileModalContent,
 	},
 	computed: {
-		...mapState(['profilePosts', 'postNum', 'filtered']),
+		...mapState('profile', ['postNum']),
+		...mapState('nav', ['filtered']),
+		...mapState(['profilePosts']),
 	},
 	methods: {
-		...mapMutations(['CONTROL_MODAL', 'SET_CLICKEDPOST']),
+		...mapMutations('profile', ['CONTROL_MODAL', 'SET_CLICKEDPOST']),
 	},
 };
 </script>
 
 //
 <style lang="scss" scoped>
-@import '@/style/Profile/ProfileModal.scss';
+@import '@/style/Profile/modal/ProfileModal.scss';
 </style>

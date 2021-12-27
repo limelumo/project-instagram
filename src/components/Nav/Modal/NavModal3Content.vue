@@ -1,5 +1,5 @@
 <template>
-	<div id="modal-content">
+	<div class="modal-content">
 		<ul class="modal-content-header">
 			<li class="modal-content-header-avatar">
 				<img src="@/assets/profile.png" alt="" />
@@ -11,9 +11,7 @@
 			<textarea placeholder="문구입력..." :value="postText" @input="updateText"></textarea>
 
 			<div class="modal-content-location">
-				<label for="">
-					<input type="text" placeholder="위치 추가" :value="postLocation" @input="updateLocation" />
-				</label>
+				<input type="text" placeholder="위치 추가" :value="postLocation" @input="updateLocation" />
 				<i class="fas fa-map-marker-alt"></i>
 			</div>
 		</section>
@@ -26,10 +24,14 @@ import { mapState, mapMutations } from 'vuex';
 export default {
 	name: 'NavPostStep3Content',
 	computed: {
-		...mapState(['name', 'postText', 'postLocation']),
+		...mapState('nav', ['postText', 'postLocation']),
+		...mapState(['name']),
+	},
+	created() {
+		this.SET_POSTTEXT(null);
 	},
 	methods: {
-		...mapMutations(['SET_POSTTEXT', 'SET_POSTLOCATION']),
+		...mapMutations('nav', ['SET_POSTTEXT', 'SET_POSTLOCATION']),
 
 		updateText(e) {
 			this.SET_POSTTEXT(e.target.value);
@@ -38,12 +40,9 @@ export default {
 			this.SET_POSTLOCATION(e.target.value);
 		},
 	},
-	created() {
-		this.SET_POSTTEXT(null);
-	},
 };
 </script>
 
 <style lang="scss" scoped>
-@import '@/style/Nav/NavModal3Content.scss';
+@import '@/style/Nav/modal/NavModal3Content.scss';
 </style>

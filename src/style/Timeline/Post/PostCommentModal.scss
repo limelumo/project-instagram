@@ -1,0 +1,45 @@
+.postCommentModal {
+	&-enter,
+	&-leave-to {
+		opacity: 0;
+		transition: opacity 150ms ease-in;
+	}
+
+	&-enter-to,
+	&-leave {
+		transition: opacity 150ms ease-out;
+	}
+}
+
+.modal {
+	@include flex(center, center, column);
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 0;
+	background-color: rgba(0, 0, 0, 0.15);
+	z-index: 5;
+	overflow-y: hidden;
+}
+
+.modal-box {
+	@include object(350px, auto, white);
+	border-radius: 12px;
+	overflow: hidden;
+	text-align: center;
+
+	li {
+		padding: 20px;
+		font-size: 14px;
+		cursor: pointer;
+
+		&:nth-child(1) {
+			@include font('', tomato, bold, '');
+			border-bottom: 1px solid $border-color;
+		}
+		&:nth-child(2) {
+			border-bottom: 1px solid $border-color;
+		}
+	}
+}

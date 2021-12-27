@@ -1,33 +1,41 @@
-#user-suggestion {
-	margin-top: 16px;
-}
-
 .user-suggestion-header {
-	@include font(14px, gray, '', '');
+	@include flex(space-between, center, '');
 	padding: 4px 0;
 	margin-bottom: 8px;
+
+	li {
+		@include font(12px, '', bold, '');
+		cursor: pointer;
+
+		&:first-child {
+			@include font(14px, gray, '', '');
+		}
+	}
 }
 
 .user-suggestion-list {
 	@include flex(space-between, center, '');
+	margin: 4px 0;
 }
 
 .user-suggestion-list-id {
 	@include flex('', center, '');
 
 	li {
-		overflow: hidden;
+		@include flex('', center, '');
 
 		&:first-child {
 			@include object(42px, 42px, '');
-			border: 1px solid $border-color;
-			border-radius: 50%;
-			margin-right: 16px;
-		}
 
+			img {
+				@include object(32px, 32px, '');
+				border-radius: 50%;
+			}
+		}
 		&:last-child {
 			font-size: 14px;
 			font-weight: bold;
+			cursor: default;
 		}
 	}
 }
@@ -36,4 +44,13 @@
 	@include font(12px, $point-color, bold, '');
 	border: 0;
 	background-color: transparent;
+}
+
+.user-suggestion-container {
+	max-height: 235px;
+	overflow-y: hidden;
+}
+
+.all {
+	max-height: none;
 }

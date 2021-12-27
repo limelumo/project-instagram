@@ -1,0 +1,77 @@
+.profileFollowingModal {
+	&-enter,
+	&-leave-to {
+		opacity: 0;
+		transition: opacity 150ms ease;
+	}
+
+	&-enter-to,
+	&-leave {
+		transition: opacity 150ms ease;
+	}
+}
+
+.modal {
+	@include flex(center, center, column);
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 0;
+	background-color: rgba(0, 0, 0, 0.65);
+	z-index: 100;
+	overflow-y: hidden;
+}
+
+.profile-following {
+	&-container {
+		@include object(360px, 360px, white);
+		border-radius: $border-radius-size * 3;
+
+		header {
+			@include flex(center, center, '');
+			height: 42px;
+			border-bottom: 1px solid $border-color;
+
+			p {
+				width: 100%;
+				text-align: center;
+			}
+		}
+	}
+	&-space {
+		width: 40px;
+	}
+	&-closeBtn {
+		width: 40px;
+		text-align: center;
+
+		button {
+			background: transparent;
+			font-size: 24px;
+		}
+	}
+}
+
+.profile-following-list {
+	@include flex(space-between, center, '');
+	margin: 8px 0;
+
+	&-container {
+		height: 318px;
+		padding: 12px 0 12px 16px;
+		overflow-y: scroll;
+	}
+	&-avatar {
+		img {
+			@include object(30px, 30px, '');
+			border-radius: 50%;
+			border: 0.35px solid $border-color;
+			margin-right: 16px;
+		}
+	}
+	&-name {
+		@include font(14px, '', bold, '');
+		width: 100%;
+	}
+}

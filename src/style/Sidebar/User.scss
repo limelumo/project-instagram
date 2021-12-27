@@ -1,6 +1,7 @@
 #user {
 	@include flex('', center, '');
-	@include object(100%, '', '');
+	width: auto;
+	// border: 1px solid red;
 	padding: 16px 0;
 
 	img {
@@ -9,8 +10,7 @@
 		margin-right: 16px;
 	}
 
-	p {
-		font-size: 14px;
-		font-weight: bold;
+	small {
+		@include font(14px, black, bold, '');
 	}
 }

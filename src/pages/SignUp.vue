@@ -14,14 +14,7 @@
 				{{ message }}
 			</div>
 
-			<button
-				type="submit"
-				class="signin-button"
-				:class="{ active: email && password && rePassword }"
-				:disabled="!this.email || !this.password || !this.rePassword"
-			>
-				가입
-			</button>
+			<button type="submit" class="signin-button" :class="{ active: email && password && rePassword }">가입</button>
 		</form>
 
 		<footer>
@@ -52,7 +45,8 @@ export default {
 		...mapState(['name']),
 	},
 	created() {
-		return (this.message = '');
+		this.message = '';
+		this.SET_USERNAME(null);
 	},
 	methods: {
 		...mapMutations(['SET_USERNAME']),

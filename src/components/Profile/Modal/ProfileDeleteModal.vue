@@ -1,6 +1,6 @@
 <template>
 	<transition name="profileDelModal" appear>
-		<div id="modal">
+		<div class="modal">
 			<ul class="modal-box">
 				<li @click="getPostID">삭제</li>
 				<li @click="CONTROL_DELMODAL(false)">취소</li>
@@ -16,17 +16,20 @@ import 'firebase/compat/firestore';
 
 export default {
 	name: 'ProfilePostDelModal',
-	computed: {
-		...mapState(['profilePosts', 'postNum']),
-	},
 	data() {
 		return {
 			id: '',
 		};
 	},
+
+	computed: {
+		...mapState('profile', ['postNum']),
+		...mapState(['profilePosts']),
+	},
+
 	methods: {
-		...mapMutations(['CONTROL_DELMODAL', 'SET_CLICKEDPOST']),
-		...mapActions(['GET_POSTDATA']),
+		...mapMutations('profile', ['CONTROL_DELMODAL', 'SET_CLICKEDPOST']),
+		...mapActions(['GET_FRIENDSDATA']),
 
 		deletePost() {
 			firebase
@@ -37,7 +40,7 @@ export default {
 				.then(() => {
 					this.CONTROL_DELMODAL(false);
 					this.SET_CLICKEDPOST(false);
-					this.GET_POSTDATA();
+					this.GET_FRIENDSDATA();
 				});
 		},
 
@@ -58,5 +61,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/style/Profile/ProfileDeleteModal.scss';
+@import '@/style/Profile/modal/ProfileDeleteModal.scss';
 </style>

@@ -1,0 +1,69 @@
+#post-comment-write-box {
+	display: flex;
+	width: 95%;
+}
+.post-comment-textarea-container {
+	@include flex('', center, '');
+	width: 88%;
+
+	textarea {
+		@include object(100%, '', '');
+		@include font(14px, '', 300, 'Noto Sans KR');
+		max-height: 80px;
+		border: 0;
+		overflow: auto;
+		resize: none;
+
+		&::-webkit-scrollbar {
+			display: none;
+		}
+	}
+}
+.emoji-invoker {
+	@include object(24px, 24px, '');
+	border-radius: 50%;
+	cursor: pointer;
+	transition: all 0.2s;
+	position: relative;
+	margin-right: 16px;
+}
+.emoji-invoker:hover {
+	transform: scale(1.1);
+}
+
+.emoji-picker {
+	@include object(18rem, 20rem, white);
+	position: absolute;
+	z-index: 1;
+	border: 1px solid $border-color;
+	border-radius: $border-radius-size * 2;
+	overflow-y: scroll;
+	padding: 1rem;
+}
+
+.emoji-picker h5 {
+	@include font(14px, gray, bold, '');
+	margin-top: 6px;
+	cursor: default;
+}
+.emoji-picker .emojis {
+	@include flex(space-between, '', '');
+	flex-wrap: wrap;
+}
+.emojis {
+	span {
+		font-size: 20px;
+	}
+}
+.emoji-picker .emojis:after {
+	content: '';
+	flex: auto;
+}
+.emoji-picker .emojis span {
+	padding: 0.2rem;
+	cursor: pointer;
+}
+.emoji-picker .emojis span:hover {
+	background: #ececec;
+	cursor: pointer;
+}

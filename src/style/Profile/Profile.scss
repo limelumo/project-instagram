@@ -48,6 +48,9 @@
 	li {
 		font-size: 16px;
 		margin-right: 2em;
+		&:last-child {
+			cursor: pointer;
+		}
 	}
 }
 

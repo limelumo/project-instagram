@@ -1,5 +1,5 @@
 <template>
-	<div id="modal-filters">
+	<div class="modal-filters">
 		<p>필터</p>
 		<ul class="modal-filter-container">
 			<li class="modal-filter" v-for="(filter, i) in filters" :key="i" @click="SET_FILTER(filter)">
@@ -17,9 +17,6 @@ import { mapState, mapMutations } from 'vuex';
 
 export default {
 	name: 'NavModal2Filter',
-	computed: {
-		...mapState(['imgUrl']),
-	},
 	data() {
 		return {
 			filters: [
@@ -44,13 +41,15 @@ export default {
 			],
 		};
 	},
-
+	computed: {
+		...mapState('nav', ['imgUrl']),
+	},
 	methods: {
-		...mapMutations(['SET_FILTER']),
+		...mapMutations('nav', ['SET_FILTER']),
 	},
 };
 </script>
 
 <style lang="scss" scoped>
-@import '@/style/Nav/NavModal2Filter.scss';
+@import '@/style/Nav/modal/NavModal2Filter.scss';
 </style>

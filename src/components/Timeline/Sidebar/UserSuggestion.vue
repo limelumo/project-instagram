@@ -1,22 +1,31 @@
 <template>
-	<section id="user-suggestion">
+	<div id="user-suggestion">
 		<div class="user-suggestion-list">
 			<ul class="user-suggestion-list-id">
 				<li>
-					<img src="@/assets/logo.png" alt="" />
+					<img :src="user.avatar" />
 				</li>
-				<li>username</li>
+				<li>{{ user.id }}</li>
 			</ul>
 
 			<!-- 팔로우 버튼 -->
-			<button class="user-suggestion-list-follow">팔로우</button>
+			<button type="button" class="user-suggestion-list-follow" @click="followThisUser">팔로우</button>
 		</div>
-	</section>
+	</div>
 </template>
 
 <script>
 export default {
 	name: 'UserSuggestion',
+	props: {
+		user: Object,
+		i: Number,
+	},
+	methods: {
+		followThisUser() {
+			alert('준비중');
+		},
+	},
 };
 </script>
 

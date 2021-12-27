@@ -1,6 +1,6 @@
 <template>
 	<transition name="NavModal" appear>
-		<div id="modal">
+		<div class="modal">
 			<div class="modal-closeBtn-container" @click="CONTROL_MODAL(false)">
 				<button type="button">
 					<i class="fas fa-times"></i>
@@ -28,14 +28,14 @@ export default {
 		NavModal3,
 	},
 	computed: {
-		...mapState(['uploadStep']),
+		...mapState('nav', ['uploadStep']),
 	},
 	methods: {
-		...mapMutations(['CONTROL_MODAL']),
+		...mapMutations('nav', ['CONTROL_MODAL']),
 	},
 };
 </script>
 
 <style lang="scss" scoped>
-@import '@/style/Nav/NavModal.scss';
+@import '@/style/Nav/modal/NavModal.scss';
 </style>

@@ -13,8 +13,11 @@
 							게시물 <b>{{ matchedPosts.length }}</b>
 						</li>
 						<li>팔로워 <b>96</b></li>
-						<li>팔로우 <b>70</b></li>
+						<li @click="showFollowingModal">
+							팔로우 <b>{{ Object.keys(followingLists).length }}</b>
+						</li>
 					</ul>
+					<ProfileFollowingModal v-if="isFollowingModalOpen" />
 				</span>
 			</header>
 
@@ -26,24 +29,35 @@
 </template>
 
 <script>
+import { mapState, mapGetters, mapActions, mapMutations } from 'vuex';
 import ProfilePosts from './ProfilePosts.vue';
-import { mapState, mapGetters, mapActions } from 'vuex';
+import ProfileFollowingModal from './Modal/ProfileFollowingModal.vue';
 
 export default {
 	name: 'Profile',
 	components: {
 		ProfilePosts,
+		ProfileFollowingModal,
 	},
 	computed: {
-		...mapState(['name', 'profilePosts']),
-		...mapGetters({ matchedPosts: 'GET_MATCHEDUSER' }),
+		...mapState('profile', ['followingLists', 'isFollowingModalOpen']),
+		...mapState(['friendPosts', 'name']),
+		...mapGetters({ matchedPosts: 'getMatchedUser' }),
 	},
 	created() {
-		this.GET_POSTDATA();
+		this.GET_FRIENDSDATA();
 		this.GET_USERNAME();
+		this.GET_FOLLOWINGDATA();
 	},
 	methods: {
-		...mapActions(['GET_POSTDATA', 'GET_USERNAME']),
+		...mapActions('profile', ['GET_FOLLOWINGDATA']),
+		...mapActions(['GET_FRIENDSDATA', 'GET_USERNAME']),
+		...mapActions(['GET_USERNAME']),
+		...mapMutations('profile', ['CONTROL_FOLLOWINGMODAL']),
+
+		showFollowingModal() {
+			this.CONTROL_FOLLOWINGMODAL(true);
+		},
 	},
 };
 </script>

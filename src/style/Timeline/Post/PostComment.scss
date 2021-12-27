@@ -1,0 +1,45 @@
+.post-comment {
+	@include flex(space-between, '', column);
+	max-height: 65px;
+	margin: 4px 0 8px 0;
+	padding: 0 16px;
+	overflow-y: hidden;
+
+	&-all {
+		@include font(14px, gray, '', '');
+		cursor: pointer;
+		margin-bottom: 4px;
+	}
+	&-lists {
+		display: flex;
+		margin: 2px 0;
+		position: relative;
+
+		&:hover .post-comment-options {
+			display: block;
+			position: absolute;
+			right: 24px;
+			cursor: pointer;
+		}
+	}
+	&-username {
+		font-weight: bold;
+		margin-right: 6px;
+	}
+
+	&-likes {
+		i {
+			position: absolute;
+			right: 0;
+			margin-left: 8px;
+		}
+	}
+
+	&-options {
+		display: none;
+	}
+}
+
+.all {
+	max-height: none;
+}

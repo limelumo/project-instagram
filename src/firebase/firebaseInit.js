@@ -20,4 +20,4 @@ firebase.initializeApp(firebaseConfig);
 const firestore = firebase.firestore();
 
 // 필요한 곳에서 사용할 수 있도록 내보내기
-export { firestore };
+export default firestore;

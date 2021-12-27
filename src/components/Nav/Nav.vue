@@ -50,10 +50,10 @@ export default {
 		NavModal,
 	},
 	computed: {
-		...mapState(['isModalOpen']),
+		...mapState('nav', ['isModalOpen']),
 	},
 	methods: {
-		...mapMutations(['CONTROL_MODAL']),
+		...mapMutations('nav', ['CONTROL_MODAL']),
 	},
 };
 </script>

@@ -2,7 +2,6 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import SignIn from '@/pages/SignIn.vue';
 import SignUp from '@/pages/SignUp.vue';
-import DM from '@/pages/DM.vue';
 import firebase from 'firebase/compat/app';
 
 Vue.use(VueRouter);
@@ -12,7 +11,7 @@ const router = new VueRouter({
 	routes: [
 		{
 			path: '/',
-			redirect: 'sign-in',
+			redirect: '/sign-in',
 		},
 		{
 			path: '/sign-in',
@@ -38,8 +37,7 @@ const router = new VueRouter({
 		{
 			path: '/dm',
 			name: 'dm',
-			component: DM,
-			// ccomponent: () => import('@/pages/DM.vue'),
+			component: () => import('@/pages/DM.vue'),
 		},
 	],
 });

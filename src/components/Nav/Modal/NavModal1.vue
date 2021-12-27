@@ -32,11 +32,11 @@ import 'firebase/compat/storage';
 export default {
 	name: 'NavModal1',
 	computed: {
-		...mapState(['imgFile', 'imgUrl', 'uploadStep']),
+		...mapState('nav', ['imgFile', 'imgUrl', 'uploadStep']),
 	},
 
 	methods: {
-		...mapMutations(['SET_IMGFILE', 'SET_IMGURL', 'SET_UPLOADSTEP']),
+		...mapMutations('nav', ['SET_IMGFILE', 'SET_IMGURL', 'SET_UPLOADSTEP']),
 
 		uploadImg(e) {
 			this.SET_IMGFILE(e.target.files[0]);
@@ -55,5 +55,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/style/Nav/NavModal.scss';
+@import '@/style/Nav/modal/NavModal.scss';
 </style>

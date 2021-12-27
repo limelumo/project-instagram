@@ -1,0 +1,17 @@
+.post-commnet-write-container {
+	@include flex(space-between, center, '');
+	width: 100%;
+	min-height: 52px;
+	padding: 6px 16px;
+	border-top: 1px solid $border-color;
+}
+
+.post-comment-write-btn {
+	@include font(14px, #c7e0fd, bold, '');
+	background: transparent;
+	cursor: default;
+}
+.active {
+	color: $point-color;
+	cursor: pointer;
+}

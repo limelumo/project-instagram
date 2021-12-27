@@ -1,0 +1,58 @@
+.PostModal {
+	&-enter,
+	&-leave-to {
+		opacity: 0;
+		transition: opacity 300ms ease-in;
+	}
+
+	&-enter-to,
+	&-leave {
+		transition: opacity 300ms ease-out;
+	}
+}
+
+.modal {
+	@include flex(center, center, '');
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 0;
+	background-color: rgba(0, 0, 0, 0.65);
+	z-index: 100;
+	overflow-y: hidden;
+}
+
+.modal-closeBtn-container {
+	position: absolute;
+	right: 12px;
+	top: 10px;
+	z-index: 1;
+
+	button {
+		@include flex(center, center, column);
+		background: 0 0;
+		padding: 8px;
+
+		i {
+			font-size: 32px;
+			color: white;
+		}
+	}
+}
+
+.modal-container {
+	@include flex(center, center, '');
+	@include object('', 665px, white);
+	border-radius: 12px;
+	// overflow: hidden;
+}
+
+.modal-box-img {
+	@include object(665px, inherit, white);
+	border-radius: 12px 0 0 12px;
+
+	img {
+		border-radius: 12px 0 0 12px;
+	}
+}

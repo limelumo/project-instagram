@@ -3,7 +3,9 @@
 		<router-link to="/profile">
 			<img src="@/assets/profile.png" alt="profile-img" />
 		</router-link>
-		<p>{{ name }}</p>
+		<router-link to="/profile">
+			<small>{{ name }}</small>
+		</router-link>
 	</section>
 </template>
 

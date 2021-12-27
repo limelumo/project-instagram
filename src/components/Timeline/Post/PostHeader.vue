@@ -2,21 +2,46 @@
 	<header class="post-header-container">
 		<ul class="post-header-user">
 			<li class="post-header-user-img">
-				<img src="@/assets/logo.png" alt="" />
+				<img :src="post.avatar" alt="" />
 			</li>
-			<li>username</li>
+			<li>{{ post.id }}</li>
 		</ul>
-
-		<span>
-			<i class="fas fa-ellipsis-h"></i>
-		</span>
 	</header>
 </template>
 
 <script>
-export default {};
+export default {
+	name: 'PostHeader',
+	props: {
+		post: Object,
+		i: Number,
+	},
+};
 </script>
 
 <style lang="scss" scoped>
-@import '@/style/Timeline/Post.scss';
+.post-header {
+	&-container {
+		@include flex(space-between, center, '');
+		padding: 16px;
+	}
+	&-user {
+		@include flex('', center, '');
+		&-img {
+			@include object(32px, 32px, '');
+			border: 1px solid $border-color;
+			border-radius: 50%;
+		}
+
+		li {
+			overflow: hidden;
+			&:first-child {
+				margin-right: 8px;
+			}
+			&:last-child {
+				@include font(14px, '', bold, '');
+			}
+		}
+	}
+}
 </style>

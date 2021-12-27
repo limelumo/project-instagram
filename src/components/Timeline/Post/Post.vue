@@ -1,45 +1,53 @@
 <template>
 	<section id="post">
-		<PostHeader />
+		<PostHeader :post="post" :i="i" />
 
-		<main>
-			<img src="@/assets/logo.png" />
+		<main class="post-main-img" @dblclick="isLikeClicked">
+			<img :src="post.img" />
 		</main>
 
 		<footer class="post-footer-container">
-			<PostLike />
-
-			<!-- 피드내용 -->
-			<div class="post-footer-feed">
-				<span class="post-footer-username">username</span>
-				<span class="post-footer-text">오늘은 월요일 </span>
-			</div>
-
-			<!-- 댓글 -->
-			<ul class="post-footer-comment">
-				<li>
-					<span class="post-footer-username">friend1</span>
-					<span class="post-footer-text"> 출근 잘 했나요 </span>
-				</li>
-				<li><i class="far fa-heart"></i></li>
-			</ul>
+			<PostLike :post="post" :i="i" />
+			<PostContent :post="post" :i="i" />
+			<PostComment :post="post" :i="i" />
+			<div class="post-footer-date">{{ getDate }}</div>
+			<PostCommentWrite :post="post" :i="i" />
 		</footer>
 	</section>
 </template>
 
 <script>
+import { mapState } from 'vuex';
+import PostLikeMixin from '@/mixins/PostLikeMixin.js';
 import PostHeader from './PostHeader.vue';
 import PostLike from './PostLike.vue';
+import PostComment from './comment/PostComment.vue';
+import PostContent from './PostContent.vue';
+import PostCommentWrite from './comment/PostCommentWrite.vue';
 
 export default {
 	name: 'Post',
 	components: {
 		PostHeader,
 		PostLike,
+		PostContent,
+		PostComment,
+		PostCommentWrite,
+	},
+	mixins: [PostLikeMixin],
+	props: {
+		post: Object,
+		i: Number,
+	},
+	computed: {
+		...mapState('post', ['options']),
+		getDate() {
+			return this.post.date.toDate().toLocaleDateString('ko-KR', this.options);
+		},
 	},
 };
 </script>
 
 <style lang="scss" scoped>
-@import '@/style/Timeline/Post.scss';
+@import '@/style/Timeline/Post/Post.scss';
 </style>

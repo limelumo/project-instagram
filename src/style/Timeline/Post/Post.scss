@@ -1,0 +1,21 @@
+#post {
+	@include object(100%, auto, white);
+	border: 1px solid $border-color;
+	border-radius: $border-radius-size;
+	margin-bottom: 24px;
+}
+
+.post-main-img {
+	@include object(inherit, 750px, '');
+}
+
+.post-footer {
+	&-container {
+		font-size: 14px;
+	}
+	&-date {
+		@include font(10px, gray, '', '');
+		margin-bottom: 16px;
+		padding: 0 16px;
+	}
+}
