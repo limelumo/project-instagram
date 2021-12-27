@@ -41,9 +41,17 @@
 }
 
 .user-suggestion-list-follow {
-	@include font(12px, $point-color, bold, '');
+	@include font(12px, white, '', '');
 	border: 0;
-	background-color: transparent;
+	background-color: $point-color;
+	padding: 4px 8px;
+	border-radius: $border-radius-size;
+}
+
+.followed {
+	background-color: white;
+	border: 1px solid $point-color;
+	color: $point-color;
 }
 
 .user-suggestion-container {

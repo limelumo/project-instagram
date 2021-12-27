@@ -1,8 +1,8 @@
 <template>
 	<!-- 댓글 개수 -->
 	<div class="post-comment" :class="{ all: showAll }">
-		<section class="post-comment-all" @click="showAllComments">
-			<div v-if="commentLength > 2">
+		<section class="post-comment-all" v-if="commentLength > 2" @click="showAllComments">
+			<div>
 				<span>댓글 {{ commentLength }}개</span>
 				<span v-if="showCommentLength == true">&nbsp;모두 보기</span>
 			</div>
